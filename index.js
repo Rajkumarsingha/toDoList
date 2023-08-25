@@ -9,11 +9,13 @@ mongoose
     .catch((err) => console.log(err))
 
 app.use(express.json());
-app.use("/", listData);
+app.use("/api", listData);
 
 //! Print Bad Request
 app.use((req,res,next) => {
-    res.status(404).send({error: "Bad Request"})
+    res.status(404).send({
+        error: "Bad Request"
+    });
 })
 
 app.use((req,res,next) => {
